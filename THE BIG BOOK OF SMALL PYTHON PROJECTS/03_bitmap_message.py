@@ -3,7 +3,6 @@
  This code is available at https://nostarch.com/big-book-small-python-programming
  Tags: tiny, beginner, artistic"""
 """ notes from P. Stoyanov - Fixed the formatting on the output in the console!"""
-import sys
 
 # (!) Try changing this multiline string to any image you like:
 
@@ -33,6 +32,8 @@ bitmap = """
                      **     *                    *
  ....................................................................
  """
+import sys
+
 width = 69
 print('Bitmap Message, by Al Sweigart al@inventwithpython.com')
 print('Enter the message or a symbol to display with the bitmap.')
@@ -43,8 +44,6 @@ while message == '' or message == ' ':
     message = input('> ')
     if message != "" or message != " ":
         continue
-
-
 
 # Loop over each line in the bitmap:
 for line in bitmap.splitlines():
