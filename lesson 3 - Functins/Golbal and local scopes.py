@@ -1,9 +1,11 @@
-spam = 42  # Global variable
-
+spam = "hello"  # Global variable
 
 def eggs():
-    spam = 42  # local variable
+    global spam # Global variable
+    spam = 42  # local variable with assigned variable it is acting on the global scope variable
+    
+    print(spam)
 
+eggs()
 
-print("bla bla ")
-print("bla 3 bla")
+print(spam)
