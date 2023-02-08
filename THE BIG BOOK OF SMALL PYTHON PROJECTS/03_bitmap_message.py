@@ -36,9 +36,15 @@ bitmap = """
 width = 69
 print('Bitmap Message, by Al Sweigart al@inventwithpython.com')
 print('Enter the message or a symbol to display with the bitmap.')
+
 message = input('> ')
-if message == '':
-    sys.exit()
+while message == '' or message == ' ':
+    print("Please visible message or symbol")
+    message = input('> ')
+    if message != "" or message != " ":
+        continue
+
+
 
 # Loop over each line in the bitmap:
 for line in bitmap.splitlines():
