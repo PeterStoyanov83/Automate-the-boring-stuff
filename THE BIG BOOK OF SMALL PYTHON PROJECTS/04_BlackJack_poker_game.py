@@ -130,7 +130,7 @@ def get_deck():
     return deck
 
 
-def display_hands(playe_hand, dealer_hand, show_dealer_hand):
+def display_hands(player_hand, dealer_hand, show_dealer_hand):
     """Show the player's and dealer's cards. Hide the dealer's first card if showDealerHand is False."""
     print()
     if show_dealer_hand:
@@ -143,8 +143,8 @@ def display_hands(playe_hand, dealer_hand, show_dealer_hand):
         display_cards([backside] + dealer_hand[1:])
 
     # Show the player's cards:
-    print('PLAYER:', get_hand_value(playe_hand))
-    display_cards(playe_hand)
+    print('PLAYER:', get_hand_value(player_hand))
+    display_cards(player_hand)
 
 
 def get_hand_value(cards):
@@ -159,13 +159,13 @@ def get_hand_value(cards):
         elif rank in ('K', 'Q', 'J'):  # Face cards are worth 10 points.
             value += 10
         else:
-            value + int(rank)  # Number cards are worth their number.
+            value += int(card[0])  # Number cards are worth their number.
 
-    # Add the value for the aces:
-    value += number_of_aces
-    for i in range(number_of_aces):
-        if value + 10 <= 21:
-            value += 10
+        # Add the value for the aces:
+        value += number_of_aces
+        for i in range(number_of_aces):
+            if value + 10 <= 21:
+                value += 10
 
     return value
 
@@ -179,7 +179,7 @@ def display_cards(cards):
             # print a card's back:
             rows[1] += '|## | '
             rows[2] += '|###| '
-            rows[3] += '|_##| '
+            rows[3] += '| ##| '
         else:
             # Print the card's front:
             rank, suit = card  # The card is a tuple data structure.
